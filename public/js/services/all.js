@@ -1,4 +1,3 @@
-// Pubic / JS / Services
 var appServices = angular.module("appServices", []);
 
 appServices.factory("JobsService", [
@@ -25,8 +24,9 @@ appServices.factory("CitiesService", function () {
   return {
     list: function () {
       return [
-        { id: 1, name: "Plovdiv" },
-        { id: 2, name: "Sofia" },
+        { id: 0, name: "" },
+        { id: 1, name: "Sofia" },
+        { id: 2, name: "Plovdiv" },
       ];
     },
   };

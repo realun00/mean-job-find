@@ -1,4 +1,3 @@
-// Pubic / JS / Controllers / Jobs
 var appControllers = angular.module("appControllers", ["appServices"]);
 
 appControllers.controller("JobsController", [
@@ -23,15 +22,28 @@ appControllers.controller("JobsController", [
     $scope.search.text = "";
     $scope.search.location = 1;
 
+    // Filter jobs
+    $scope.filter = {};
+    $scope.filter.min = -1;
+    $scope.filter.max = -1;
+
     // Apply search
     $scope.search.find = function () {
       JobsService.list({
         text: $scope.search.text,
         location: $scope.search.location,
+        filter: { min: $scope.filter.min, max: $scope.filter.max },
       }).success(function (data) {
         $scope.jobs = data;
 
-        Materialize.toast("Results " + $scope.search.text + " and " + $scope.search.location, 2000);
+        Materialize.toast("Results: " + data.length, 2000);
+      });
+    };
+
+    //Apply clear search
+    $scope.search.clear = function () {
+      JobsService.list().success(function (data) {
+        $scope.jobs = data;
       });
     };
 
