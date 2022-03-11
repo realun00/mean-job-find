@@ -1,11 +1,11 @@
 # SeekyJOB
-A Sample app using MEAN Stack.
+APP using MEAN Stack.
 
 ## How to install
 1. `npm install`
 2. `node server.js`
 
-## Using these techs
+## Using MEAN (angular.js)
 - MongoDB
 - ExpressJS
 - AngularJS
