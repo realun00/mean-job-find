@@ -1,0 +1,55 @@
+<main id="app-content">
+  <div class="content">
+    <div class="row">
+      <div class="col m9">
+        <h2>Post a job offer</h2>
+
+        <div class="divider mb20"></div>
+
+        <form ng-submit="job.add()">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="job-data-title" ng-model="job.data.title" required="required" />
+              <label for="job-data-title">Title</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea
+                ng-model="job.data.description"
+                id="job-data-description"
+                class="materialize-textarea"
+                required="required"
+              ></textarea>
+              <label for="job-data-description">Description</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="number" id="job-data-salary" ng-model="job.data.salary" required="required" />
+              <label for="job-data-salary">Salary (per month)</label>
+            </div>
+
+            <div class="input-field col s6">
+              <select
+                ng-model="job.data.location"
+                class="browser-default"
+                ng-options="city.id as city.name for city in cities"
+              ></select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="btn waves-effect waves-light" type="submit" name="action">
+                Post
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,71 @@
+<main id="app-content">
+  <div class="content">
+    <div class="row">
+      <div class="col m9">
+        <div class="row mb0">
+          <div class="col s12">
+            <div class="card grey lighten-3">
+              <div class="card-content">
+                <span class="card-title">Search for jobs</span>
+
+                <form ng-submit="search.find()">
+                  <div class="row mb0">
+                    <div class="col s5">
+                      <div class="input-field">
+                        <input type="text" ng-model="search.text" placeholder="Eg - Web developer" />
+                      </div>
+                    </div>
+
+                    <div class="col s4">
+                      <div class="input-field">
+                        <select
+                          ng-model="search.location"
+                          class="browser-default"
+                          ng-options="city.id as city.name for city in cities"
+                        ></select>
+                      </div>
+                    </div>
+
+                    <div class="col s3 center-align">
+                      <div class="input-field">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb0" ng-repeat="job in jobs">
+          <div class="col s12">
+            <div class="card white">
+              <div class="card-content">
+                <span class="card-title">{{ job.title }}</span>
+                <p class="teal-text tx-md">Salary: {{ job.salary }} BGN (NET)</p>
+                <p class="mt10">{{ job.description }}</p>
+                <p class="mt10">Location: {{ city(job.location) }}</p>
+              </div>
+
+              <div class="card-action">
+                <a href="#" class="btn waves-effect waves-light">Apply</a>
+                <a href="#" class="btn-flat waves-effect waves-darken grey-text darken-2">More info</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb0" ng-show="!jobs.length">
+          <div class="col s12">
+            <div class="card white">
+              <div class="card-content">
+                <p>There are no current job offers added.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
